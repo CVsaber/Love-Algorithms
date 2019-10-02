@@ -137,6 +137,6 @@ def find_max_square(length, width):
     if result == 0:     # 基线条件
         return width
     else:
-        return find_max_square(width, result)
+        return find_max_square(width, result)	# 递归条件
 ```
 
