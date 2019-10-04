@@ -96,7 +96,7 @@ def fact(x):
 
 简单练手：
 
-用分而治之的思想编程实现：给定一块土地(m x n)，试将该地均匀分成方块，并使方块的面积尽可能大，求方块的边长。如输入：1680 640； 输出：80
+1. 用分而治之的思想编程实现：给定一块土地(m x n)，试将该地均匀分成方块，并使方块的面积尽可能大，求方块的边长。如输入：1680 640； 输出：80
 
 ```
 求解思想：
@@ -139,4 +139,51 @@ def find_max_square(length, width):
     else:
         return find_max_square(width, result)	# 递归条件
 ```
+
+2. 递归求解列表元素的和。例如：输入：arr = [1, 2, 3, 4],  输出：sum = 10
+
+​      小技巧：在编写涉及到数组的递归函数时，基线条件通常是数组为空或者只包含一个元素！
+
+```python
+def sum_arr(arr):
+    # 前提，列表非空
+    if len(arr)  == 0:
+        return "列表为空！" 
+    # 基线条件
+    if len(arr) < 2:
+        return arr[0]
+    else:
+        # 递归条件，缩小规模
+        return arr[0] + sum_arr(arr[1:])
+```
+
+3.  递归计算列表中包含的元素个数。例如：输入arr = [1,2], 输出：num = 2
+
+   ```python
+   def num_arr(arr):
+       # 基线条件
+       if arr == []:
+           return 0
+       else:
+           # 递归
+           return 1 + num_arr(arr[1:])
+   ```
+
+4. 递归找出列表中最大的数
+
+   ```python
+   def findmax2(arr):
+       # 前提
+       if arr == []:
+           return "错误，列表为空！"
+       # 基线条件
+       if len(arr) < 2:
+           return arr[0]
+       else:
+           # 递归
+           sub_max = findmax2(arr[1:])
+           return arr[0] if arr[0] > sub_max else sub_max
+   ```
+
+   
 
