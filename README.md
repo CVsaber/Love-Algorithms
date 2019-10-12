@@ -185,5 +185,33 @@ def sum_arr(arr):
            return arr[0] if arr[0] > sub_max else sub_max
    ```
 
-   
+- 快速排序
+
+```
+快速排序是常用的排序算法，比选择排序快的多，C语言中的qsort实现的就是快速排序。
+快速排序步骤：
+	1.找基准值
+	2.分区：小于基准，基准，大于基准
+	3.对各区域进行快速排序
+```
+
+```python
+def quicksort(arr):
+    '''快速排序'''
+    if len(arr) < 2:    # 基线条件：为空或只包含一个元素的数组有序
+        return arr
+
+    else:
+        pivot = arr[0]  # 递归
+        less = [i for i in arr[1:] if i <= pivot]   # 小于基准的区,取等号是防止有与基准相同的值
+        greater = [i for i in arr[1:] if i > pivot]
+
+        return quicksort(less) + [pivot] + quicksort(greater)
+```
+
+- 再谈大O
+
+在大O表示法中，*O(n)*中的n实际上指的是c*n,其中c表示算法所需的固定时间常量。我们在比较算法时通常是不考虑这个量的，因为**如果两种算法的大O时间不同，c的大小将无关紧要**。
+
+但是，当大O相同时，c就有作用了。还有一种排序算法为**合并排序**的算法时间复杂度为*O(nlog(n))*, 但我们还是常用**快速排序**算法，虽然它的平均时间复杂度才是*O(nlog(n))*,就是因为它们的**c不同**。
 
